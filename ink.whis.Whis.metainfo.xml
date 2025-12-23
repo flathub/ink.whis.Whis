@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>ink.whis.Whis</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <name>Whis</name>
+  <summary>Turn speech into text</summary>
+  <description>
+    <p>Whis is a desktop application that transcribes your voice to text using OpenAI's Whisper API. Press a global shortcut to start recording, release to transcribe, and the text is automatically copied to your clipboard.</p>
+    <p>Features:</p>
+    <ul>
+      <li>Global keyboard shortcut (works in any application)</li>
+      <li>System tray integration with recording status</li>
+      <li>Automatic clipboard paste</li>
+      <li>X11 and Wayland support</li>
+    </ul>
+  </description>
+  <url type="homepage">https://whis.ink</url>
+  <url type="bugtracker">https://github.com/frankdierolf/whis/issues</url>
+  <url type="vcs-browser">https://github.com/frankdierolf/whis</url>
+  <launchable type="desktop-id">ink.whis.Whis.desktop</launchable>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/frankdierolf/whis/5d1fd2f/crates/whis-desktop/screenshots/1-about.png</image>
+      <caption>Your voice, piped to clipboard</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/frankdierolf/whis/5d1fd2f/crates/whis-desktop/screenshots/2-tray.png</image>
+      <caption>System tray integration</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/frankdierolf/whis/5d1fd2f/crates/whis-desktop/screenshots/3-home.png</image>
+      <caption>Start recording from the home screen</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/frankdierolf/whis/5d1fd2f/crates/whis-desktop/screenshots/4-shortcuts.png</image>
+      <caption>Configure global keyboard shortcuts</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/frankdierolf/whis/5d1fd2f/crates/whis-desktop/screenshots/5-settings-cloud.png</image>
+      <caption>Cloud transcription providers</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/frankdierolf/whis/5d1fd2f/crates/whis-desktop/screenshots/6-settings-local.png</image>
+      <caption>Local Whisper transcription</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/frankdierolf/whis/5d1fd2f/crates/whis-desktop/screenshots/7-presets.png</image>
+      <caption>AI post-processing presets</caption>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.6.0" date="2025-12-23">
+      <description>
+        <p>Local Transcription &amp; Multi-Platform Support</p>
+        <ul>
+          <li>Local whisper transcription via whisper.cpp (fully offline)</li>
+          <li>AI post-processing with Ollama support</li>
+          <li>Preset system: ai-prompt, email, default + custom</li>
+          <li>Setup wizard: whis setup cloud/local</li>
+          <li>Android app (alpha) with cloud transcription</li>
+          <li>Multi-platform builds: Linux ARM64, macOS Intel/ARM, Windows</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.9" date="2025-12-11">
+      <description>
+        <p>Multi-provider transcription</p>
+        <ul>
+          <li>Choose between OpenAI Whisper and Mistral Voxtral providers</li>
+          <li>Add language hint support (ISO-639-1 codes)</li>
+          <li>Desktop settings panel with provider selection</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.8" date="2025-12-03">
+      <description>
+        <p>Full cross-platform support and Linux ARM64</p>
+        <ul>
+          <li>Windows and macOS CLI now fully supported</li>
+          <li>Linux ARM64 support (Raspberry Pi, AWS Graviton)</li>
+          <li>Cross-platform IPC and hotkey support</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.7" date="2025-12-03">
+      <description>
+        <p>Smart close behavior</p>
+        <ul>
+          <li>Window quits if no way to reopen (no tray and no shortcut)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.6" date="2025-12-03">
+      <description>
+        <p>AppImage install/uninstall and no-tray support</p>
+        <ul>
+          <li>Add --install and --uninstall CLI flags for AppImage</li>
+          <li>Support desktop environments without system tray</li>
+          <li>Fix Wayland window matching with StartupWMClass</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.5" date="2025-12-02">
+      <description>
+        <p>Improved naming conventions</p>
+        <ul>
+          <li>Rename Config to ApiConfig for clarity</li>
+          <li>Rename AudioResult to RecordingOutput</li>
+          <li>Various internal naming improvements</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.4" date="2025-12-01">
+      <description>
+        <p>Bundle wl-clipboard in Flatpak for GNOME compatibility</p>
+        <ul>
+          <li>Use bundled wl-copy instead of flatpak-spawn</li>
+          <li>No longer requires sandbox escape permission</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.3" date="2025-12-01">
+      <description>
+        <p>GNOME clipboard compatibility fix</p>
+        <ul>
+          <li>Use flatpak-spawn for clipboard (GNOME doesn't support wlr-data-control)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.2" date="2025-12-01">
+      <description>
+        <p>Flathub release with improved sandbox compatibility</p>
+        <ul>
+          <li>Use Wayland data-control protocol for clipboard</li>
+          <li>Renamed app ID to ink.whis.Whis</li>
+          <li>Removed unnecessary permissions</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.5.0" date="2025-11-30">
+      <description>
+        <p>Initial Flatpak release with desktop application</p>
+        <ul>
+          <li>System tray with global shortcut support</li>
+          <li>Vue 3.6 settings UI</li>
+          <li>X11 and Wayland support via XDG Portal</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <developer id="ink.whis">
+    <name>Frank Dierolf</name>
+  </developer>
+  <branding>
+    <color type="primary" scheme_preference="light">#FFE066</color>
+    <color type="primary" scheme_preference="dark">#B38F00</color>
+  </branding>
+  <categories>
+    <category>Utility</category>
+    <category>Audio</category>
+  </categories>
+  <keywords>
+    <keyword>voice</keyword>
+    <keyword>transcription</keyword>
+    <keyword>whisper</keyword>
+    <keyword>speech-to-text</keyword>
+  </keywords>
+</component>

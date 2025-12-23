@@ -25,6 +25,7 @@ build-options:
     CARGO_HOME: /run/build/whis-desktop/cargo
     XDG_CACHE_HOME: /run/build/whis-desktop/flatpak-node/cache
     npm_config_cache: /run/build/whis-desktop/flatpak-node/npm-cache
+    WHISPER_DONT_GENERATE_BINDINGS: "1"
 
 modules:
   # System tray indicator support (from shared-modules)
@@ -52,9 +53,9 @@ modules:
       - cargo build --release -p whis-desktop --offline
       # Install binary
       - install -Dm755 target/release/whis-desktop /app/bin/whis-desktop
-      # Install metadata (from packaging/linux/)
-      - install -Dm644 crates/whis-desktop/packaging/linux/ink.whis.Whis.metainfo.xml /app/share/metainfo/ink.whis.Whis.metainfo.xml
-      - install -Dm644 crates/whis-desktop/packaging/linux/ink.whis.Whis.desktop /app/share/applications/ink.whis.Whis.desktop
+      # Install metadata
+      - install -Dm644 ink.whis.Whis.metainfo.xml /app/share/metainfo/ink.whis.Whis.metainfo.xml
+      - install -Dm644 ink.whis.Whis.desktop /app/share/applications/ink.whis.Whis.desktop
       # Install icons
       - install -Dm644 crates/whis-desktop/icons/22x22.png /app/share/icons/hicolor/22x22/apps/ink.whis.Whis.png
       - install -Dm644 crates/whis-desktop/icons/48x48.png /app/share/icons/hicolor/48x48/apps/ink.whis.Whis.png
@@ -68,7 +69,11 @@ modules:
     sources:
       - type: git
         url: https://github.com/frankdierolf/whis.git
-        tag: v0.5.8
-        commit: 19d4acfc9eb093ee069555fbc6bf4907e99f8d68
+        tag: v0.6.0
+        commit: 5d1fd2f67a484dd12ecbb7cdd38c3fea5dba497b
       - cargo-sources.json
       - node-sources.json
+      - type: file
+        path: ink.whis.Whis.desktop
+      - type: file
+        path: ink.whis.Whis.metainfo.xml
