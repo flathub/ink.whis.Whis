@@ -81,8 +81,14 @@ modules:
       - node-sources.json
       # ONNX Runtime for Parakeet local transcription (ort-sys can't download during offline build)
       - type: archive
+        only-arches: [x86_64]
         url: https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-linux-x64-1.22.0.tgz
         sha256: 8344d55f93d5bc5021ce342db50f62079daf39aaafb5d311a451846228be49b3
+        dest: onnxruntime
+      - type: archive
+        only-arches: [aarch64]
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-linux-aarch64-1.22.0.tgz
+        sha256: bb76395092d150b52c7092dc6b8f2fe4d80f0f3bf0416d2f269193e347e24702
         dest: onnxruntime
       - type: file
         path: ink.whis.Whis.desktop
