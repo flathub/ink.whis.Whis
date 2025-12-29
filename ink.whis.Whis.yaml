@@ -75,7 +75,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/frankdierolf/whis.git
-        tag: v0.6.2
+        tag: v0.6.3
         commit: d4526455c48bde86dc98c9a96b28040197f1d466
       - cargo-sources.json
       - node-sources.json
