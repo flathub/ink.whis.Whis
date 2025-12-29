@@ -75,8 +75,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/frankdierolf/whis.git
-        tag: v0.6.2
-        commit: d4526455c48bde86dc98c9a96b28040197f1d466
+        tag: v0.6.3
+        commit: 571d57b5e87dae7756ad21edb2ccc5a577c8406d
       - cargo-sources.json
       - node-sources.json
       # ONNX Runtime for Parakeet local transcription (ort-sys can't download during offline build)
