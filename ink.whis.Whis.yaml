@@ -26,6 +26,8 @@ build-options:
     XDG_CACHE_HOME: /run/build/whis-desktop/flatpak-node/cache
     npm_config_cache: /run/build/whis-desktop/flatpak-node/npm-cache
     WHISPER_DONT_GENERATE_BINDINGS: "1"
+    ORT_STRATEGY: system
+    ORT_LIB_LOCATION: /run/build/whis-desktop/onnxruntime/lib
 
 modules:
   # System tray indicator support (from shared-modules)
@@ -53,6 +55,10 @@ modules:
       - cargo build --release -p whis-desktop --offline
       # Install binary
       - install -Dm755 target/release/whis-desktop /app/bin/whis-desktop
+      # Install ONNX Runtime libraries for runtime (required by Parakeet local transcription)
+      - install -Dm755 onnxruntime/lib/libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so.1.22.0
+      - ln -sf libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so.1
+      - ln -sf libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so
       # Install metadata
       - install -Dm644 ink.whis.Whis.metainfo.xml /app/share/metainfo/ink.whis.Whis.metainfo.xml
       - install -Dm644 ink.whis.Whis.desktop /app/share/applications/ink.whis.Whis.desktop
@@ -69,10 +75,15 @@ modules:
     sources:
       - type: git
         url: https://github.com/frankdierolf/whis.git
-        tag: v0.6.0
-        commit: 5d1fd2f67a484dd12ecbb7cdd38c3fea5dba497b
+        tag: v0.6.2
+        commit: d4526455c48bde86dc98c9a96b28040197f1d466
       - cargo-sources.json
       - node-sources.json
+      # ONNX Runtime for Parakeet local transcription (ort-sys can't download during offline build)
+      - type: archive
+        url: https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-linux-x64-1.22.0.tgz
+        sha256: 8344d55f93d5bc5021ce342db50f62079daf39aaafb5d311a451846228be49b3
+        dest: onnxruntime
       - type: file
         path: ink.whis.Whis.desktop
       - type: file
