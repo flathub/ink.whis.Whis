@@ -18,6 +18,8 @@ finish-args:
   - --device=dri
   - --share=network
   - --talk-name=org.kde.StatusNotifierWatcher
+  - --own-name=org.ink_whis_Whis.SingleInstance
+  - --talk-name=org.ink_whis_Whis.SingleInstance
 
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node20/bin
