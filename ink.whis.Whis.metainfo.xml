@@ -51,6 +51,19 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.7.0" date="2026-01-15">
+      <description>
+        <p>Progressive Transcription &amp; Deepgram Integration</p>
+        <ul>
+          <li>Progressive transcription - real-time text output instead of batch processing</li>
+          <li>Deepgram as default provider - $200 free credits for easy onboarding</li>
+          <li>Wayland shortcut support - new RdevGrab backend for Linux</li>
+          <li>Floating bubble overlay - visual feedback during recording</li>
+          <li>Removed FFmpeg dependency - embedded LAME for easier installs</li>
+          <li>Improved model management and memory handling</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.6.4" date="2026-01-02"><description><p>Release 0.6.4</p></description></release>
     <release version="0.6.3" date="2025-12-29"><description><p>Release 0.6.3</p></description></release>
     <release version="0.6.2" date="2025-12-29">
