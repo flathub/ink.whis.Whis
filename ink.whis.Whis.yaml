@@ -28,6 +28,9 @@ build-options:
     WHISPER_DONT_GENERATE_BINDINGS: "1"
     ORT_STRATEGY: system
     ORT_LIB_LOCATION: /run/build/whis-desktop/onnxruntime/lib
+    # Reproducible build settings
+    CARGO_INCREMENTAL: "0"
+    RUSTFLAGS: "-Ccodegen-units=1"
 
 modules:
   # System tray indicator support (from shared-modules)
