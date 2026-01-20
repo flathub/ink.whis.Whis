@@ -51,6 +51,25 @@
   </screenshots>
   <content_rating type="oars-1.1"/>
   <releases>
+    <release version="0.7.2" date="2026-01-20">
+      <description>
+        <p>Bug Fixes</p>
+        <ul>
+          <li>Deprecate draggable bubble position on pure Wayland. XWayland, X11 are unaffected.</li>
+          <li>Fixed settings copy button not working correctly</li>
+        </ul>
+      </description>
+    </release>
+    <release version="0.7.1" date="2026-01-18">
+      <description>
+        <p>Draggable Floating Bubble</p>
+        <ul>
+          <li>Floating bubble is now draggable to any position on screen</li>
+          <li>Improved Wayland support for bubble positioning</li>
+          <li>Bubble position is remembered across sessions</li>
+        </ul>
+      </description>
+    </release>
     <release version="0.7.0" date="2026-01-15">
       <description>
         <p>Progressive Transcription &amp; Deepgram Integration</p>
