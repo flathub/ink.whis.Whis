@@ -41,14 +41,14 @@ modules:
       - ln -sf libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so
       - install -Dm644 ink.whis.Whis.metainfo.xml /app/share/metainfo/ink.whis.Whis.metainfo.xml
       - install -Dm644 ink.whis.Whis.desktop /app/share/applications/ink.whis.Whis.desktop
-      - install -Dm644 icons/22x22.png /app/share/icons/hicolor/22x22/apps/ink.whis.Whis.png
-      - install -Dm644 icons/48x48.png /app/share/icons/hicolor/48x48/apps/ink.whis.Whis.png
-      - install -Dm644 icons/64x64.png /app/share/icons/hicolor/64x64/apps/ink.whis.Whis.png
-      - install -Dm644 icons/96x96.png /app/share/icons/hicolor/96x96/apps/ink.whis.Whis.png
-      - install -Dm644 icons/128x128.png /app/share/icons/hicolor/128x128/apps/ink.whis.Whis.png
-      - install -Dm644 icons/256x256.png /app/share/icons/hicolor/256x256/apps/ink.whis.Whis.png
-      - install -Dm644 icons/512x512.png /app/share/icons/hicolor/512x512/apps/ink.whis.Whis.png
-      - install -Dm644 icons/icon.svg /app/share/icons/hicolor/scalable/apps/ink.whis.Whis.svg
+      - install -Dm644 22x22.png /app/share/icons/hicolor/22x22/apps/ink.whis.Whis.png
+      - install -Dm644 48x48.png /app/share/icons/hicolor/48x48/apps/ink.whis.Whis.png
+      - install -Dm644 64x64.png /app/share/icons/hicolor/64x64/apps/ink.whis.Whis.png
+      - install -Dm644 96x96.png /app/share/icons/hicolor/96x96/apps/ink.whis.Whis.png
+      - install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/ink.whis.Whis.png
+      - install -Dm644 256x256.png /app/share/icons/hicolor/256x256/apps/ink.whis.Whis.png
+      - install -Dm644 512x512.png /app/share/icons/hicolor/512x512/apps/ink.whis.Whis.png
+      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/ink.whis.Whis.svg
     sources:
       # Pre-built binary
       - type: archive
@@ -77,5 +77,19 @@ modules:
         path: ink.whis.Whis.desktop
       - type: file
         path: ink.whis.Whis.metainfo.xml
-      - type: dir
-        path: icons
+      - type: file
+        path: icons/22x22.png
+      - type: file
+        path: icons/48x48.png
+      - type: file
+        path: icons/64x64.png
+      - type: file
+        path: icons/96x96.png
+      - type: file
+        path: icons/128x128.png
+      - type: file
+        path: icons/256x256.png
+      - type: file
+        path: icons/512x512.png
+      - type: file
+        path: icons/icon.svg
