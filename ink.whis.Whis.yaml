@@ -18,7 +18,6 @@ finish-args:
   - --device=dri
   - --share=network
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --own-name=ink.whis.Whis.SingleInstance
 
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node20/bin
@@ -76,8 +75,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/frankdierolf/whis.git
-        tag: v0.6.4
-        commit: ea7aed42e1e5470783dd4ae4f9ec649d8c99c3fb
+        tag: v0.7.2
+        commit: 93a1790225a43d2b91190880d61beb215e2d1038
       - cargo-sources.json
       - node-sources.json
       # ONNX Runtime for Parakeet local transcription (ort-sys can't download during offline build)
