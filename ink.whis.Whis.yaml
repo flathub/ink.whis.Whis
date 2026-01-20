@@ -55,10 +55,12 @@ modules:
         only-arches: [x86_64]
         url: https://github.com/frankdierolf/whis/releases/download/v0.7.2/whis-desktop-v0.7.2-x86_64-unknown-linux-gnu.tar.gz
         sha256: 839d76a6e668aa8b2ffc2ceb503014f89d8623e2740e02b8634522057e3a23c0
+        strip-components: 0
       - type: archive
         only-arches: [aarch64]
         url: https://github.com/frankdierolf/whis/releases/download/v0.7.2/whis-desktop-v0.7.2-aarch64-unknown-linux-gnu.tar.gz
         sha256: f6e26323af079e4675da972bc038ebf0e83708c600f1145991db27f13361751c
+        strip-components: 0
       # ONNX Runtime for Parakeet local transcription
       - type: archive
         only-arches: [x86_64]
