@@ -1,13 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
-  <!-- Background squircle - matches Whis app --bg color -->
-  <rect x="4" y="4" width="120" height="120" rx="28" fill="#121212"/>
+  <!-- Scale to 75% centered for GNOME icon safe zone -->
+  <g transform="translate(64, 64) scale(0.75) translate(-64, -64)">
+    <!-- Background squircle (#121212) -->
+    <rect x="4" y="4" width="120" height="120" rx="28" fill="#121212"/>
 
-  <!-- Waveform lines - matches Whis app --accent color -->
-  <g stroke="#FFD633" stroke-width="12" stroke-linecap="round">
-    <line x1="28" y1="64" x2="28" y2="64.01"/>
-    <line x1="44" y1="44" x2="44" y2="84"/>
-    <line x1="64" y1="24" x2="64" y2="104"/>
-    <line x1="84" y1="44" x2="84" y2="84"/>
-    <line x1="100" y1="64" x2="100" y2="64.01"/>
+    <!-- Waveform lines (#FFD633) -->
+    <g stroke="#FFD633" stroke-width="12" stroke-linecap="round">
+      <line x1="28" y1="64" x2="28" y2="64.01"/>
+      <line x1="44" y1="44" x2="44" y2="84"/>
+      <line x1="64" y1="24" x2="64" y2="104"/>
+      <line x1="84" y1="44" x2="84" y2="84"/>
+      <line x1="100" y1="64" x2="100" y2="64.01"/>
+    </g>
   </g>
 </svg>
