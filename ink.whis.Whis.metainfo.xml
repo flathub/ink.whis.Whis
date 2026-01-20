@@ -6,13 +6,13 @@
   <name>Whis</name>
   <summary>Turn speech into text</summary>
   <description>
-    <p>Whis is a desktop application that transcribes your voice to text using OpenAI's Whisper API. Press a global shortcut to start recording, release to transcribe, and the text is automatically copied to your clipboard.</p>
+    <p>Whis transcribes your voice and copies the text to your clipboard. Press a shortcut, speak, release—your words are ready to paste anywhere.</p>
+    <p>Choose cloud transcription for speed or local transcription for privacy. Local mode works fully offline.</p>
     <p>Features:</p>
     <ul>
-      <li>Global keyboard shortcut (works in any application)</li>
-      <li>System tray integration with recording status</li>
-      <li>Automatic clipboard paste</li>
-      <li>X11 and Wayland support</li>
+      <li>Global keyboard shortcut</li>
+      <li>Cloud or local transcription</li>
+      <li>AI post-processing to transform text into emails, prompts, or custom formats</li>
     </ul>
   </description>
   <url type="homepage">https://whis.ink</url>
@@ -193,8 +193,8 @@
     <name>Frank Dierolf</name>
   </developer>
   <branding>
-    <color type="primary" scheme_preference="light">#FFE066</color>
-    <color type="primary" scheme_preference="dark">#B38F00</color>
+    <color type="primary" scheme_preference="light">#FFD633</color>
+    <color type="primary" scheme_preference="dark">#121212</color>
   </branding>
   <categories>
     <category>Utility</category>
