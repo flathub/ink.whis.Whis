@@ -48,7 +48,6 @@ modules:
       - install -Dm644 128x128.png /app/share/icons/hicolor/128x128/apps/ink.whis.Whis.png
       - install -Dm644 256x256.png /app/share/icons/hicolor/256x256/apps/ink.whis.Whis.png
       - install -Dm644 512x512.png /app/share/icons/hicolor/512x512/apps/ink.whis.Whis.png
-      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/ink.whis.Whis.svg
     sources:
       # Pre-built binary
       - type: archive
@@ -91,5 +90,3 @@ modules:
         path: icons/256x256.png
       - type: file
         path: icons/512x512.png
-      - type: file
-        path: icons/icon.svg
