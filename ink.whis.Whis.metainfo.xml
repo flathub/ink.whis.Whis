@@ -193,8 +193,8 @@
     <name>Frank Dierolf</name>
   </developer>
   <branding>
-    <color type="primary" scheme_preference="light">#FFE066</color>
-    <color type="primary" scheme_preference="dark">#B38F00</color>
+    <color type="primary" scheme_preference="light">#FFD633</color>
+    <color type="primary" scheme_preference="dark">#121212</color>
   </branding>
   <categories>
     <category>Utility</category>
