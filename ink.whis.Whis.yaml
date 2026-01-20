@@ -5,9 +5,6 @@ id: ink.whis.Whis
 runtime: org.gnome.Platform
 runtime-version: "49"
 sdk: org.gnome.Sdk
-sdk-extensions:
-  - org.freedesktop.Sdk.Extension.rust-stable
-  - org.freedesktop.Sdk.Extension.node20
 command: whis-desktop
 
 finish-args:
@@ -18,19 +15,6 @@ finish-args:
   - --device=dri
   - --share=network
   - --talk-name=org.kde.StatusNotifierWatcher
-
-build-options:
-  append-path: /usr/lib/sdk/rust-stable/bin:/usr/lib/sdk/node20/bin
-  env:
-    CARGO_HOME: /run/build/whis-desktop/cargo
-    XDG_CACHE_HOME: /run/build/whis-desktop/flatpak-node/cache
-    npm_config_cache: /run/build/whis-desktop/flatpak-node/npm-cache
-    WHISPER_DONT_GENERATE_BINDINGS: "1"
-    ORT_STRATEGY: system
-    ORT_LIB_LOCATION: /run/build/whis-desktop/onnxruntime/lib
-    # Reproducible build settings
-    CARGO_INCREMENTAL: "0"
-    RUSTFLAGS: "-Ccodegen-units=1"
 
 modules:
   # System tray indicator support (from shared-modules)
@@ -47,42 +31,35 @@ modules:
         url: https://github.com/bugaevc/wl-clipboard.git
         tag: v2.2.1
 
-  # Main application
+  # Main application (pre-built binary)
   - name: whis-desktop
     buildsystem: simple
     build-commands:
-      # Build frontend
-      - cd crates/whis-desktop/ui && npm install --legacy-peer-deps
-      - cd crates/whis-desktop/ui && npm run build
-      # Build Rust backend
-      - cargo build --release -p whis-desktop --offline
-      # Install binary
-      - install -Dm755 target/release/whis-desktop /app/bin/whis-desktop
-      # Install ONNX Runtime libraries for runtime (required by Parakeet local transcription)
+      - install -Dm755 whis-desktop /app/bin/whis-desktop
       - install -Dm755 onnxruntime/lib/libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so.1.22.0
       - ln -sf libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so.1
       - ln -sf libonnxruntime.so.1.22.0 /app/lib/libonnxruntime.so
-      # Install metadata
       - install -Dm644 ink.whis.Whis.metainfo.xml /app/share/metainfo/ink.whis.Whis.metainfo.xml
       - install -Dm644 ink.whis.Whis.desktop /app/share/applications/ink.whis.Whis.desktop
-      # Install icons
-      - install -Dm644 crates/whis-desktop/icons/22x22.png /app/share/icons/hicolor/22x22/apps/ink.whis.Whis.png
-      - install -Dm644 crates/whis-desktop/icons/48x48.png /app/share/icons/hicolor/48x48/apps/ink.whis.Whis.png
-      - install -Dm644 crates/whis-desktop/icons/64x64.png /app/share/icons/hicolor/64x64/apps/ink.whis.Whis.png
-      - install -Dm644 crates/whis-desktop/icons/96x96.png /app/share/icons/hicolor/96x96/apps/ink.whis.Whis.png
-      - install -Dm644 crates/whis-desktop/icons/128x128.png /app/share/icons/hicolor/128x128/apps/ink.whis.Whis.png
-      - install -Dm644 crates/whis-desktop/icons/256x256.png /app/share/icons/hicolor/256x256/apps/ink.whis.Whis.png
-      - install -Dm644 crates/whis-desktop/icons/512x512.png /app/share/icons/hicolor/512x512/apps/ink.whis.Whis.png
-      # Install scalable SVG for HiDPI
-      - install -Dm644 crates/whis-desktop/icons/icon.svg /app/share/icons/hicolor/scalable/apps/ink.whis.Whis.svg
+      - install -Dm644 icons/22x22.png /app/share/icons/hicolor/22x22/apps/ink.whis.Whis.png
+      - install -Dm644 icons/48x48.png /app/share/icons/hicolor/48x48/apps/ink.whis.Whis.png
+      - install -Dm644 icons/64x64.png /app/share/icons/hicolor/64x64/apps/ink.whis.Whis.png
+      - install -Dm644 icons/96x96.png /app/share/icons/hicolor/96x96/apps/ink.whis.Whis.png
+      - install -Dm644 icons/128x128.png /app/share/icons/hicolor/128x128/apps/ink.whis.Whis.png
+      - install -Dm644 icons/256x256.png /app/share/icons/hicolor/256x256/apps/ink.whis.Whis.png
+      - install -Dm644 icons/512x512.png /app/share/icons/hicolor/512x512/apps/ink.whis.Whis.png
+      - install -Dm644 icons/icon.svg /app/share/icons/hicolor/scalable/apps/ink.whis.Whis.svg
     sources:
-      - type: git
-        url: https://github.com/frankdierolf/whis.git
-        tag: v0.7.2
-        commit: 93a1790225a43d2b91190880d61beb215e2d1038
-      - cargo-sources.json
-      - node-sources.json
-      # ONNX Runtime for Parakeet local transcription (ort-sys can't download during offline build)
+      # Pre-built binary
+      - type: archive
+        only-arches: [x86_64]
+        url: https://github.com/frankdierolf/whis/releases/download/v0.7.2/whis-desktop-v0.7.2-x86_64-unknown-linux-gnu.tar.gz
+        sha256: 839d76a6e668aa8b2ffc2ceb503014f89d8623e2740e02b8634522057e3a23c0
+      - type: archive
+        only-arches: [aarch64]
+        url: https://github.com/frankdierolf/whis/releases/download/v0.7.2/whis-desktop-v0.7.2-aarch64-unknown-linux-gnu.tar.gz
+        sha256: f6e26323af079e4675da972bc038ebf0e83708c600f1145991db27f13361751c
+      # ONNX Runtime for Parakeet local transcription
       - type: archive
         only-arches: [x86_64]
         url: https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-linux-x64-1.22.0.tgz
@@ -93,7 +70,10 @@ modules:
         url: https://github.com/microsoft/onnxruntime/releases/download/v1.22.0/onnxruntime-linux-aarch64-1.22.0.tgz
         sha256: bb76395092d150b52c7092dc6b8f2fe4d80f0f3bf0416d2f269193e347e24702
         dest: onnxruntime
+      # Local files
       - type: file
         path: ink.whis.Whis.desktop
       - type: file
         path: ink.whis.Whis.metainfo.xml
+      - type: dir
+        path: icons
